@@ -17,6 +17,7 @@ goto loop
 set command=%space%
 set /p command="C:\Windows\system32>"
 if "%command%" == "%space%" (goto loop)
+if "%command%" == "exit" (exit)
 echo '%command%' は、内部コマンドまたは外部コマンド、
 echo 操作可能なプログラムまたはバッチ ファイルとして認識されていません。
 echo.
