@@ -1,0 +1,30 @@
+(version_3.0)
+@echo off
+title 管理者:コマンドプロンプト
+echo Microsoft Windows ^[Version 10.0.19044.3^]
+echo ^(c^) Microsoft Corporation. All rights reserved.
+echo.
+goto loop
+
+:loop
+set space=%random%
+set command=%space%
+title 管理者:コマンドプロンプト
+set /p command="C:\Windows\system32>"
+if "%command%" == "%space%" (goto loop)
+if "%command%" == "exit" (exit)
+if "%command%" == "sfc /scannow" (goto 1)
+echo '%command%' は、内部コマンドまたは外部コマンド、
+echo 操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+echo.
+goto loop
+:1
+title 管理者:コマンドプロンプト-sfc /scannow
+echo システム スキャンを開始しています。これにはしばらく時間がかかります。
+echo.
+echo システム スキャンの検証フェーズを開始しています。
+echo 検証 100^% が完了しました。
+echo.
+echo Windows リソース保護により、破損したファイルが見つかりましたが、それらは放っておきました
+echo.
+goto loop
